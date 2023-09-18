@@ -23,10 +23,11 @@ if (saveData) {
   messageInput.value = data.message;
 }
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    localStorage.removeItem('feedback-form-state');
-    emailInput.value = "";
-    messageInput.value = "";
+if (emailInput.value !== "" && messageInput.value !== "") {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      localStorage.removeItem('feedback-form-state');
+      emailInput.value = "";
+      messageInput.value = "";
+    });
 }
-)
