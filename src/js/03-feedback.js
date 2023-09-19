@@ -23,13 +23,19 @@ if (saveData) {
   messageInput.value = data.message;
 }
 
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (emailInput.value !== '' && messageInput.value !== '') {
+    
+    const submitData = {
+      email: emailInput.value,
+      message: messageInput.value,
+    };
+    console.log(submitData);
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (emailInput.value !== '' && messageInput.value !== '') {    
     localStorage.removeItem('feedback-form-state');
     emailInput.value = '';
     messageInput.value = '';
-  };
-  });
+  }
+});
 
